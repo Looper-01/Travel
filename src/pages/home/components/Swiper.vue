@@ -24,7 +24,7 @@ export default {
         id: '0002',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/13/6332699c44387902.jpg_750x200_b7afa4f8.jpg'
       }, {
-        id: '0002',
+        id: '0003',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/d2/2a72bb766d8f6d02.jpg_750x200_e1c78528.jpg'
       }]
     }
