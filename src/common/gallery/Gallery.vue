@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="handleGalleryClick">
     <div class="wrapper">
       <swiper :options="swiperOptions">
         <swiper-slide
@@ -17,21 +17,22 @@ export default {
   name: 'CommonGallery',
   props: {
     imgs: {
-      type: Array,
-      default () {
-        return [
-          'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg',
-          'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg'
-        ]
-      }
+      type: Array
     }
   },
   data () {
     return {
       swiperOptions: {
         pagination: '.swiper-pagination',
-        paginationType: 'fraction'
+        paginationType: 'fraction',
+        observeParents: true,
+        observer: true
       }
+    }
+  },
+  methods: {
+    handleGalleryClick () {
+      this.$emit('close')
     }
   }
 }

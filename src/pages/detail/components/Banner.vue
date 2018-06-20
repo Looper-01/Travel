@@ -1,18 +1,41 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner" @click="handleBannerClick">
       <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg" alt="">
       <div class="banner-info">
         <div class="banner-title">上海迪士尼乐园</div>
         <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> 18</div>
       </div>
     </div>
-    <common-gallery></common-gallery>
+    <common-gallery
+      :imgs="imgs"
+      v-show="showGallery"
+      @close="handleGalleryClose"
+    >
+    </common-gallery>
   </div>
 </template>
 <script>
 import CommonGallery from 'common/gallery/Gallery'
 export default {
+  name: 'DetailBanner',
+  data () {
+    return {
+      showGallery: false,
+      imgs: [
+        'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg',
+        'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg'
+      ]
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallery = true
+    },
+    handleGalleryClose () {
+      this.showGallery = false
+    }
+  },
   components: {
     CommonGallery
   }
