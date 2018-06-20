@@ -1,15 +1,21 @@
 <template>
-  <div class="banner">
-    <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg" alt="">
-    <div class="banner-info">
-      <div class="banner-title">上海迪士尼乐园</div>
-      <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> 18</div>
+  <div>
+    <div class="banner">
+      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg" alt="">
+      <div class="banner-info">
+        <div class="banner-title">上海迪士尼乐园</div>
+        <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> 18</div>
+      </div>
     </div>
+    <common-gallery></common-gallery>
   </div>
 </template>
 <script>
+import CommonGallery from 'common/gallery/Gallery'
 export default {
-
+  components: {
+    CommonGallery
+  }
 }
 </script>
 <style lang="stylus" scoped>
