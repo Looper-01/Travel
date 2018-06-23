@@ -1,0 +1,30 @@
+{
+  "ret": true,
+  "data": {
+    "sightName": "上海迪士尼乐园",
+    "bannerImg": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg",
+    "galleryImgs": [
+      "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_600x330_8572a930.jpg",
+      "http://img1.qunarzz.com/sight/p0/1704/d2/d2a029bded2f6b4aa3.img.jpg_350x240_6ed8e68e.jpg",
+      "http://img1.qunarzz.com/sight/p0/1711/b6/b6dcb80ed40dedbfa3.img.jpg_350x240_7205d2a3.jpg",
+      "http://img1.qunarzz.com/sight/p0/1704/ff/ff02101c458e7e25a3.img.jpg_350x240_b4297c87.jpg",
+      "http://img1.qunarzz.com/sight/p0/1711/bc/bc751858d9709ca9a3.img.jpg_350x240_0b1bd50c.jpg"],
+    "categoryList": [{
+      "title": "成人票",
+      "children": [{
+        "title" :"成人票三馆票",
+        "children": [{
+          "title":"成人票三馆票,张江高科店售"
+        }]
+      }, {
+        "title": "成人票五馆票"
+      }]
+    }, {
+      "title": "儿童票"
+    }, {
+      "title": "学生票"
+    }, {
+      "title": "特惠票"
+    }]
+  }
+}
