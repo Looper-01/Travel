@@ -46,10 +46,10 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  deactivated () {
+  beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }
@@ -69,7 +69,7 @@ export default {
     .header-abs-back
       color #ffffff
       font-size .4rem
-.header-fixed
+  .header-fixed
     z-index 2
     position fixed
     left 0
