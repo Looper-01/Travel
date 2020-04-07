@@ -16,11 +16,11 @@
 </template>
 <script>
 export default {
-  name: 'HomeRecommend',
+  name: "HomeRecommend",
   props: {
     list: Array
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   @import '~styles/mixins.styl';

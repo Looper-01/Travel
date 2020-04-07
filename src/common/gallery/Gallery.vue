@@ -14,28 +14,28 @@
 </template>
 <script>
 export default {
-  name: 'CommonGallery',
+  name: "CommonGallery",
   props: {
     imgs: {
       type: Array
     }
   },
-  data () {
+  data() {
     return {
       swiperOptions: {
-        pagination: '.swiper-pagination',
-        paginationType: 'fraction',
+        pagination: ".swiper-pagination",
+        paginationType: "fraction",
         observeParents: true,
         observer: true
       }
-    }
+    };
   },
   methods: {
-    handleGalleryClick () {
-      this.$emit('close')
+    handleGalleryClick() {
+      this.$emit("close");
     }
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   .container >>> .swiper-container

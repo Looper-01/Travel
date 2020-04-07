@@ -21,61 +21,63 @@
   </div>
 </template>
 <script>
-import BScroll from 'better-scroll'
-import { mapMutations } from 'vuex'
+import BScroll from "better-scroll";
+import { mapMutations } from "vuex";
 export default {
-  name: 'CitySearch',
-  data () {
+  name: "CitySearch",
+  data() {
     return {
-      keyword: '',
+      keyword: "",
       list: [],
       timer: null
-    }
+    };
   },
   props: {
     cities: Object
   },
   methods: {
-    handleCityClick (city) {
-      this.changeCity(city)
-      this.$router.push('/')
+    handleCityClick(city) {
+      this.changeCity(city);
+      this.$router.push("/");
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(["changeCity"])
   },
   computed: {
-    hasNoData () {
-      return !this.list.length
+    hasNoData() {
+      return !this.list.length;
     }
   },
   watch: {
-    keyword () {
+    keyword() {
       if (this.timer) {
-        clearTimeout(this.timer)
+        clearTimeout(this.timer);
       }
       if (!this.keyword) {
-        this.list = []
-        return
+        this.list = [];
+        return;
       }
       this.timer = setTimeout(() => {
-        const result = []
+        const result = [];
         for (let i in this.cities) {
-          this.cities[i].forEach((value) => {
-            if (value.spell.indexOf(this.keyword) > -1 ||
-              value.name.indexOf(this.keyword) > -1) {
-              result.push(value)
+          this.cities[i].forEach(value => {
+            if (
+              value.spell.indexOf(this.keyword) > -1 ||
+              value.name.indexOf(this.keyword) > -1
+            ) {
+              result.push(value);
             }
-          })
+          });
         }
-        this.list = result
-      }, 100)
+        this.list = result;
+      }, 100);
     }
   },
-  mounted () {
+  mounted() {
     this.scroll = new BScroll(this.$refs.search, {
       click: true
-    })
+    });
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl';

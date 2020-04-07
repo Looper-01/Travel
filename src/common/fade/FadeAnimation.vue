@@ -5,8 +5,8 @@
 </template>
 <script>
 export default {
-  name: 'Fade'
-}
+  name: "Fade"
+};
 </script>
 <style lang="stylus" scoped>
   .v-enter, .v-leave-to

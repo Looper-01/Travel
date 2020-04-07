@@ -10,24 +10,24 @@
 </template>
 <script>
 export default {
-  name: 'HomeSwiper',
+  name: "HomeSwiper",
   props: {
     list: Array
   },
-  data () {
+  data() {
     return {
       swiperOption: {
-        pagination: '.swiper-pagination',
+        pagination: ".swiper-pagination",
         loop: true
       }
-    }
+    };
   },
   computed: {
-    showSwiper () {
-      return this.list.length
+    showSwiper() {
+      return this.list.length;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

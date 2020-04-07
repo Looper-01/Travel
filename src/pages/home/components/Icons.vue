@@ -18,31 +18,31 @@
 </template>
 <script>
 export default {
-  name: 'HomeIcons',
+  name: "HomeIcons",
   props: {
     list: Array
   },
-  data () {
+  data() {
     return {
       swiperOption: {
         autoPlay: false
       }
-    }
+    };
   },
   computed: {
-    pages () {
-      const pages = []
+    pages() {
+      const pages = [];
       this.list.forEach((item, index) => {
-        const page = Math.floor(index / 8)
+        const page = Math.floor(index / 8);
         if (!pages[page]) {
-          pages[page] = []
+          pages[page] = [];
         }
-        pages[page].push(item)
-      })
-      return pages
+        pages[page].push(item);
+      });
+      return pages;
     }
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl';

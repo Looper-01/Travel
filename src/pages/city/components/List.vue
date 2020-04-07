@@ -43,10 +43,10 @@
   </div>
 </template>
 <script>
-import Bscroll from 'better-scroll'
-import { mapState, mapMutations } from 'vuex'
+import Bscroll from "better-scroll";
+import { mapState, mapMutations } from "vuex";
 export default {
-  name: 'CityList',
+  name: "CityList",
   props: {
     hot: Array,
     cities: Object,
@@ -54,30 +54,30 @@ export default {
   },
   computed: {
     ...mapState({
-      currentCity: 'city'
+      currentCity: "city"
     })
   },
   methods: {
-    handleCityClick (city) {
-      this.changeCity(city)
-      this.$router.push('/')
+    handleCityClick(city) {
+      this.changeCity(city);
+      this.$router.push("/");
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(["changeCity"])
   },
   watch: {
-    letter () {
+    letter() {
       if (this.letter) {
-        const element = this.$refs[this.letter][0]
-        this.scroll.scrollToElement(element)
+        const element = this.$refs[this.letter][0];
+        this.scroll.scrollToElement(element);
       }
     }
   },
-  mounted () {
+  mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper, {
       click: true
-    })
+    });
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl';

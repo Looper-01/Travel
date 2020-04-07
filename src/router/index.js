@@ -1,24 +1,27 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Home',
-      component: () => import('@/pages/home/Home')
-    }, {
-      path: '/city',
-      name: 'Come',
-      component: () => import('@/pages/city/City')
-    }, {
-      path: '/detail/:id',
-      name: 'Detail',
-      component: () => import('@/pages/detail/Detail')
-    }],
-  scrollBehavior (to, from, savePosition) {
-    return { x: 0, y: 0 }
+      path: "/",
+      name: "Home",
+      component: () => import("@/pages/home/Home")
+    },
+    {
+      path: "/city",
+      name: "Come",
+      component: () => import("@/pages/city/City")
+    },
+    {
+      path: "/detail/:id",
+      name: "Detail",
+      component: () => import("@/pages/detail/Detail")
+    }
+  ],
+  scrollBehavior(to, from, savePosition) {
+    return { x: 0, y: 0 };
   }
-})
+});

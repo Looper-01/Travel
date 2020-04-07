@@ -16,13 +16,13 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 export default {
-  name: 'HomeHeader',
+  name: "HomeHeader",
   computed: {
-    ...mapState(['city'])
+    ...mapState(["city"])
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl';
