@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" v-if="showSwiper">
+    <swiper v-if="showSwiper" :options="swiperOption">
       <swiper-slide v-for="item of list" :key="item.id">
-        <img class="swiper-img" :src="item.imgUrl" alt="尧哥的去哪网门票">
+        <img :src="item.imgUrl" class="swiper-img" alt="尧哥的去哪网门票">
       </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
+      <div slot="pagination" class="swiper-pagination"/>
     </swiper>
   </div>
 </template>

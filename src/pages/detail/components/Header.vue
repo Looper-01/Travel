@@ -9,9 +9,9 @@
       <div class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
     <div
-      class="header-fixed"
       v-show="!showAbs"
       :style="opacityStyle"
+      class="header-fixed"
     >
       <router-link to="/">
         <div class="iconfont header-fixed-back">&#xe624;</div>
@@ -31,6 +31,12 @@ export default {
       }
     };
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
     handleScroll() {
       const top =
@@ -48,12 +54,6 @@ export default {
         this.showAbs = true;
       }
     }
-  },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>

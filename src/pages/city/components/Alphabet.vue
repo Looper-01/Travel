@@ -1,15 +1,15 @@
 <template>
   <ul class="list">
     <li
-      class="item"
       v-for="item of letters"
       :key="item"
+      :ref="item"
+      class="item"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @click="handleLetterClick"
-      :ref="item"
-    >{{item}}</li>
+    >{{ item }}</li>
   </ul>
 </template>
 <script>
@@ -18,21 +18,21 @@ export default {
   props: {
     cities: Object
   },
-  computed: {
-    letters() {
-      const letters = [];
-      for (let i in this.cities) {
-        letters.push(i);
-      }
-      return letters;
-    }
-  },
   data() {
     return {
       touchStatus: false,
       startY: 0,
       timer: null
     };
+  },
+  computed: {
+    letters() {
+      const letters = [];
+      for (const i in this.cities) {
+        letters.push(i);
+      }
+      return letters;
+    }
   },
   updated() {
     this.startY = this.$refs["A"][0].offsetTop;

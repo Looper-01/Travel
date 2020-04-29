@@ -1,19 +1,18 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" :src="bannerImg">
+      <img :src="bannerImg" class="banner-img">
       <div class="banner-info">
-        <div class="banner-title">{{this.sightName}}</div>
-        <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> {{this.bannerImgs.length}}</div>
+        <div class="banner-title">{{ this.sightName }}</div>
+        <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> {{ this.bannerImgs.length }}</div>
       </div>
     </div>
     <fade-animation>
       <common-gallery
-        :imgs="bannerImgs"
         v-show="showGallery"
+        :imgs="bannerImgs"
         @close="handleGalleryClose"
-      >
-      </common-gallery>
+      />
     </fade-animation>
   </div>
 </template>
@@ -22,6 +21,10 @@ import CommonGallery from "common/gallery/Gallery";
 import FadeAnimation from "common/fade/FadeAnimation";
 export default {
   name: "DetailBanner",
+  components: {
+    CommonGallery,
+    FadeAnimation
+  },
   props: {
     sightName: String,
     bannerImg: String,
@@ -39,10 +42,6 @@ export default {
     handleGalleryClose() {
       this.showGallery = false;
     }
-  },
-  components: {
-    CommonGallery,
-    FadeAnimation
   }
 };
 </script>

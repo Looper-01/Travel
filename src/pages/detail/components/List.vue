@@ -1,16 +1,16 @@
 <template>
   <div>
     <div
-      class="item"
       v-for="(item,index) of list"
       :key="index"
+      class="item"
     >
       <div class="item-title border-bottom">
-        <span class="item-title-icon"></span>
-        {{item.title}}
+        <span class="item-title-icon"/>
+        {{ item.title }}
       </div>
       <div v-if="item.children" class="item-children">
-        <detail-list :list="item.children"></detail-list>
+        <detail-list :list="item.children"/>
       </div>
     </div>
   </div>

@@ -1,16 +1,23 @@
+<!--
+ * @Description:
+ * @Author: Looper
+ * @Date: 2020-04-07 15:37:40
+ * @LastEditors: Looper
+ * @LastEditTime: 2020-04-29 22:58:03
+ * @FilePath: /Travel/src/pages/city/City.vue
+ -->
 <template>
   <div>
-    <city-header></city-header>
+    <city-header/>
     <city-search
-      :cities="cities">
-    </city-search>
+      :cities="cities"/>
     <city-list
       :cities="cities"
       :hot="hotCities"
-      :letter="letter"></city-list>
+      :letter="letter"/>
     <city-alphabet
       :cities="cities"
-      @change="handleLetterChange"></city-alphabet>
+      @change="handleLetterChange"/>
   </div>
 </template>
 <script>
@@ -34,6 +41,9 @@ export default {
       letter: ""
     };
   },
+  mounted() {
+    this.getCityInfo();
+  },
   methods: {
     getCityInfo() {
       axios.get("/api/city.json").then(this.handleGetCityInfoSucc);
@@ -49,9 +59,6 @@ export default {
     handleLetterChange(letter) {
       this.letter = letter;
     }
-  },
-  mounted() {
-    this.getCityInfo();
   }
 };
 </script>

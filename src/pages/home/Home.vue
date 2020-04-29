@@ -1,10 +1,10 @@
 <template>
   <div>
-    <home-header></home-header>
-    <home-swiper :list="swiperList"></home-swiper>
-    <home-icons :list="iconList"></home-icons>
-    <home-recommend :list="recommendList"></home-recommend>
-    <home-weekend :list="weekendList"></home-weekend>
+    <home-header/>
+    <home-swiper :list="swiperList"/>
+    <home-icons :list="iconList"/>
+    <home-recommend :list="recommendList"/>
+    <home-weekend :list="weekendList"/>
   </div>
 </template>
 <script>
@@ -36,6 +36,16 @@ export default {
   computed: {
     ...mapState(["city"])
   },
+  mounted() {
+    this.lastCity = this.city;
+    this.getHomeInfo();
+  },
+  activated() {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city;
+      this.getHomeInfo();
+    }
+  },
   methods: {
     getHomeInfo() {
       axios
@@ -51,16 +61,6 @@ export default {
         this.recommendList = data.recommendList;
         this.weekendList = data.weekendList;
       }
-    }
-  },
-  mounted() {
-    this.lastCity = this.city;
-    this.getHomeInfo();
-  },
-  activated() {
-    if (this.lastCity !== this.city) {
-      this.lastCity = this.city;
-      this.getHomeInfo();
     }
   }
 };

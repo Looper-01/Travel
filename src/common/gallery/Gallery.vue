@@ -5,9 +5,9 @@
         <swiper-slide
           v-for="(item, index) in imgs"
           :key="index">
-          <img class="gallery-img" :src="item" alt="尧哥的去哪网门票">
+          <img :src="item" class="gallery-img" alt="尧哥的去哪网门票">
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div slot="pagination" class="swiper-pagination"/>
       </swiper>
     </div>
   </div>

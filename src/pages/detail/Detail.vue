@@ -1,13 +1,13 @@
 <template>
   <div>
     <detail-banner
-      :sightName="sightName"
-      :bannerImg="bannerImg"
-      :bannerImgs="galleryImgs"
-    ></detail-banner>
-    <detail-header></detail-header>
+      :sight-name="sightName"
+      :banner-img="bannerImg"
+      :banner-imgs="galleryImgs"
+    />
+    <detail-header/>
     <div class="content">
-      <detail-list :list="list"></detail-list>
+      <detail-list :list="list"/>
     </div>
   </div>
 </template>
@@ -31,6 +31,9 @@ export default {
       list: []
     };
   },
+  mounted() {
+    this.getDetailInfo();
+  },
   methods: {
     getDetailInfo() {
       axios
@@ -51,9 +54,6 @@ export default {
         this.list = data.categoryList;
       }
     }
-  },
-  mounted() {
-    this.getDetailInfo();
   }
 };
 </script>
