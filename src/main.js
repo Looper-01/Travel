@@ -3,7 +3,7 @@
  * @Author: Looper
  * @Date: 2020-06-20 20:05:30
  * @LastEditors: Looper
- * @LastEditTime: 2020-06-20 20:22:24
+ * @LastEditTime: 2020-06-20 21:09:52
  * @FilePath: /Travel/src/main.js
  */
 // The Vue build version to load with the `import` command
@@ -24,11 +24,8 @@ import "swiper/dist/css/swiper.css";
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper);
 
-/* eslint-disable no-new */
 new Vue({
-  el: "#app",
   router,
   store,
-  components: { App },
-  template: "<App/>"
-});
+  render: h => h(App)
+}).$mount("#app");

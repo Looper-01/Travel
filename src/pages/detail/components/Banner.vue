@@ -1,24 +1,31 @@
+<!--
+ * @Description: Banner
+ * @Author: Looper
+ * @Date: 2020-06-20 20:20:43
+ * @LastEditors: Looper
+ * @LastEditTime: 2020-06-20 21:53:18
+ * @FilePath: /Travel/src/pages/detail/components/Banner.vue
+--> 
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img :src="bannerImg" class="banner-img">
+      <img :src="bannerImg" class="banner-img" />
       <div class="banner-info">
         <div class="banner-title">{{ this.sightName }}</div>
-        <div class="banner-number"><span class="iconfont banner-icon ">&#xe692;</span> {{ this.bannerImgs.length }}</div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe692;</span>
+          {{ this.bannerImgs.length }}
+        </div>
       </div>
     </div>
     <fade-animation>
-      <common-gallery
-        v-show="showGallery"
-        :imgs="bannerImgs"
-        @close="handleGalleryClose"
-      />
+      <common-gallery v-show="showGallery" :imgs="bannerImgs" @close="handleGalleryClose" />
     </fade-animation>
   </div>
 </template>
 <script>
-import CommonGallery from "common/gallery/Gallery";
-import FadeAnimation from "common/fade/FadeAnimation";
+import CommonGallery from "@/common/gallery/Gallery";
+import FadeAnimation from "@/common/fade/FadeAnimation";
 export default {
   name: "DetailBanner",
   components: {
@@ -46,34 +53,45 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-  .banner
-    position relative
-    overflow hidden
-    height 0
-    padding-bottom 55%
-    .banner-img
-      width 100%
-    .banner-info
-      display flex
-      position absolute
-      left 0
-      right 0
-      bottom 0
-      line-height .6rem
-      color #ffffff
-      background-image linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.8))
-      .banner-title
-        flex 1
-        font-size .32rem
-        padding 0 .2rem
-      .banner-number
-        height .32rem
-        line-height .32rem
-        padding 0 .4rem
-        margin-top .14rem
-        border-radius .2rem
-        background rgba(0, 0, 0, .8)
-        font-size .24rem
-        .banner-icon
-          font-size .24rem
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 55%;
+
+  .banner-img {
+    width: 100%;
+  }
+
+  .banner-info {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 0.6rem;
+    color: #ffffff;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+
+    .banner-title {
+      flex: 1;
+      font-size: 0.32rem;
+      padding: 0 0.2rem;
+    }
+
+    .banner-number {
+      height: 0.32rem;
+      line-height: 0.32rem;
+      padding: 0 0.4rem;
+      margin-top: 0.14rem;
+      border-radius: 0.2rem;
+      background: rgba(0, 0, 0, 0.8);
+      font-size: 0.24rem;
+
+      .banner-icon {
+        font-size: 0.24rem;
+      }
+    }
+  }
+}
 </style>

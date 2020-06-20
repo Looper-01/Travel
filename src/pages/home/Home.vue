@@ -1,10 +1,18 @@
+<!--
+ * @Description: Home
+ * @Author: Looper
+ * @Date: 2020-06-20 20:20:43
+ * @LastEditors: Looper
+ * @LastEditTime: 2020-06-20 21:49:26
+ * @FilePath: /Travel/src/pages/home/Home.vue
+--> 
 <template>
   <div>
-    <home-header/>
-    <home-swiper :list="swiperList"/>
-    <home-icons :list="iconList"/>
-    <home-recommend :list="recommendList"/>
-    <home-weekend :list="weekendList"/>
+    <home-header />
+    <home-swiper :list="swiperList" />
+    <home-icons :list="iconList" />
+    <home-recommend :list="recommendList" />
+    <home-weekend :list="weekendList" />
   </div>
 </template>
 <script>
@@ -48,9 +56,7 @@ export default {
   },
   methods: {
     getHomeInfo() {
-      axios
-        .get("/static/mock/index.json?city=" + this.city)
-        .then(this.getHomeInfoSucc);
+      axios.get("/api/index.json?city=" + this.city).then(this.getHomeInfoSucc);
     },
     getHomeInfoSucc(res) {
       res = res.data;
