@@ -3,7 +3,7 @@
  * @Author: Looper
  * @Date: 2020-06-20 20:20:43
  * @LastEditors: Looper
- * @LastEditTime: 2020-06-20 21:53:18
+ * @LastEditTime: 2020-06-25 10:32:50
  * @FilePath: /Travel/src/pages/detail/components/Banner.vue
 --> 
 <template>
@@ -11,10 +11,10 @@
     <div class="banner" @click="handleBannerClick">
       <img :src="bannerImg" class="banner-img" />
       <div class="banner-info">
-        <div class="banner-title">{{ this.sightName }}</div>
+        <div class="banner-title">{{ sightName }}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe692;</span>
-          {{ this.bannerImgs.length }}
+          {{ bannerImgs.length }}
         </div>
       </div>
     </div>

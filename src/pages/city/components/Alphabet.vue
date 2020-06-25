@@ -1,3 +1,11 @@
+<!--
+ * @Description: Alphabet
+ * @Author: Looper
+ * @Date: 2020-06-24 23:11:17
+ * @LastEditors: Looper
+ * @LastEditTime: 2020-06-25 10:38:50
+ * @FilePath: /Travel/src/pages/city/components/Alphabet.vue
+--> 
 <template>
   <ul class="list">
     <li
@@ -35,7 +43,7 @@ export default {
     }
   },
   updated() {
-    this.startY = this.$refs["A"][0].offsetTop;
+    this.startY = this.$refs["A"].offsetTop;
   },
   methods: {
     handleLetterClick(e) {
