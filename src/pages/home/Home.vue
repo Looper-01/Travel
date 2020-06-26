@@ -3,26 +3,28 @@
  * @Author: Looper
  * @Date: 2020-06-20 20:20:43
  * @LastEditors: Looper
- * @LastEditTime: 2020-06-20 21:49:26
+ * @LastEditTime: 2020-06-26 15:35:19
  * @FilePath: /Travel/src/pages/home/Home.vue
 --> 
 <template>
   <div>
     <home-header />
-    <home-swiper :list="swiperList" />
-    <home-icons :list="iconList" />
-    <home-recommend :list="recommendList" />
-    <home-weekend :list="weekendList" />
+    <home-swiper :list="data.swiperList" />
+    <home-icons :list="data.iconList" />
+    <home-recommend :list="data.recommendList" />
+    <home-weekend :list="data.weekendList" />
   </div>
 </template>
 <script>
+// Composition API
 import HomeHeader from "./components/Header";
 import HomeSwiper from "./components/Swiper";
 import HomeIcons from "./components/Icons";
 import HomeRecommend from "./components/Recommend";
 import HomeWeekend from "./components/Weekend";
 import axios from "axios";
-import { mapState } from "vuex";
+import { useStore } from "vuex";
+import { reactive, computed, onMounted, onActivated } from "vue";
 export default {
   name: "Home",
   components: {
@@ -32,42 +34,56 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
-  data() {
-    return {
+  setup() {
+    // 原data函数，需要reactive函数封装才可以响应式
+    const data = reactive({
       lastCity: "",
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekendList: []
-    };
-  },
-  computed: {
-    ...mapState(["city"])
-  },
-  mounted() {
-    this.lastCity = this.city;
-    this.getHomeInfo();
-  },
-  activated() {
-    if (this.lastCity !== this.city) {
-      this.lastCity = this.city;
-      this.getHomeInfo();
-    }
-  },
-  methods: {
-    getHomeInfo() {
-      axios.get("/api/index.json?city=" + this.city).then(this.getHomeInfoSucc);
-    },
-    getHomeInfoSucc(res) {
+    });
+
+    // vuex
+    const store = useStore();
+
+    // computed属性
+    const city = computed(() => {
+      return store.state.city;
+    });
+
+    // methods start
+    function getHomeInfoSucc(res) {
       res = res.data;
       if (res.ret && res.data) {
-        const data = res.data;
-        this.swiperList = data.swiperList;
-        this.iconList = data.iconList;
-        this.recommendList = data.recommendList;
-        this.weekendList = data.weekendList;
+        const result = res.data;
+        data.swiperList = result.swiperList;
+        data.iconList = result.iconList;
+        data.recommendList = result.recommendList;
+        data.weekendList = result.weekendList;
       }
     }
+
+    function getHomeInfo() {
+      axios.get("/api/index.json?city=" + city).then(getHomeInfoSucc);
+    }
+    // methods end
+
+    // 原来是生命周期的mounted
+    onMounted(() => {
+      data.lastCity = city;
+      getHomeInfo();
+    });
+
+    // 原生命周期的activated
+    onActivated(() => {
+      if (data.lastCity !== city) {
+        data.lastCity = city;
+        getHomeInfo();
+      }
+    });
+    // 输出
+    return { data, city };
   }
 };
 </script>
