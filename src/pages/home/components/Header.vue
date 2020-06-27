@@ -3,7 +3,7 @@
  * @Author: Looper
  * @Date: 2020-04-07 15:37:40
  * @LastEditors: Looper
- * @LastEditTime: 2020-06-25 10:34:16
+ * @LastEditTime: 2020-06-27 22:42:20
  * @FilePath: /Travel/src/pages/home/components/Header.vue
 --> 
 <template>
@@ -24,11 +24,13 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { useStore } from "vuex";
 export default {
   name: "HomeHeader",
-  computed: {
-    ...mapState(["city"])
+  setup() {
+    const store = useStore();
+    const city = store.state.city;
+    return { city };
   }
 };
 </script>
